@@ -1,0 +1,60 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+    <!-- Meta -->
+    <meta name="description" content="Premium Quality and Responsive UI for Dashboard.">
+    <meta name="author" content="ThemePixels">
+
+    <title>Dashbaord Admin </title>
+
+    <!-- Vendor css -->
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+    <link href="{% static 'css/ionicons.css' %}" rel="stylesheet">
+
+    <!-- Slim CSS -->
+    <link rel="stylesheet" href="{% static 'css/slim.css' %}">
+
+  </head>
+  <body>
+
+    <div class="signin-wrapper">
+
+      <div class="signin-box">
+        <h2 class="slim-logo"><a href="/">Semranks<span>.</span></a></h2>
+
+        <h3 class="signin-title-secondary">Sign in to continue.</h3>
+
+          <form action="" method="post">
+              {% csrf_token %}
+        <div class="form-group">
+               {{form.as_p}}
+
+
+        </div><!-- form-group -->
+        <button class="btn btn-primary btn-block btn-signin">Sign In</button>
+
+      </div><!-- signin-box -->
+        </form>
+
+    </div><!-- signin-wrapper -->
+
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+
+    <script src="{% static 'js/slim.js' %}"></script>
+
+  <script>
+      $('#id_username').addClass('form-control');
+       $('#id_password').addClass('form-control');
+  </script>
+
+  </body>
+</html>

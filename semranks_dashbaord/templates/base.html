@@ -1,0 +1,160 @@
+{% load staticfiles %}
+{% block head %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+    <!-- Meta -->
+    <meta name="description" content="semranks">
+    <meta name="author" content="semranks">
+
+    <title>SEMRANKS CLIENT DASHBOARD</title>
+
+    <!-- vendor css -->
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+    <link href="{% static 'css/ionicons.css' %}" rel="stylesheet">
+    <link href="{% static 'css/rickshaw.min.css' %}" rel="stylesheet">
+
+    <!-- Slim CSS -->
+    <link rel="stylesheet" href="{% static 'css/slim.css' %}">
+
+  </head>
+  <body class="dashboard-3">
+    <div class="slim-header">
+      <div class="container">
+        <div class="slim-header-left">
+
+          <h2 class="slim-logo">
+            <img src="{% static 'images/SEM_RANKS_LOGO.png' %}"/>
+            <!--<a href="">SEMRANKS<span></span></a>-->
+
+          </h2>
+
+          <div class="search-box">
+            <input type="text" class="form-control" placeholder="Search">
+            <button class="btn btn-primary">go</button>
+          </div><!-- search-box -->
+        </div><!-- slim-header-left -->
+        <div class="slim-header-right">
+
+
+
+
+
+          <div class="dropdown dropdown-c">
+            <a href="#" class="logged-user" data-toggle="dropdown">
+              <img src="" alt="">
+              <span style="color:white">{{request.user}}</span>
+              <!--<i class="fa fa-angle-down"></i>-->
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <nav class="nav">
+                <a class="nav-link"> View Profile</a>
+                <a href="{% url 'accounts:logout' %}" class="nav-link"> Sign Out</a>
+              </nav>
+            </div><!-- dropdown-menu -->
+          </div><!-- dropdown -->
+
+
+        </div><!-- header-right -->
+
+
+
+      </div><!-- container -->
+    </div><!-- slim-header -->
+
+    <div class="slim-navbar">
+      <div class="container">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <!--<i class="icon ion-ios-home-outline"></i>-->
+              <span>Dashboard</span>
+            </a>
+
+          </li>
+
+
+
+
+
+
+ <li class="nav-item">
+            <a class="nav-link" href="">
+
+              <span>Projects</span>
+              <!--<span class="square-8"></span>-->
+            </a>
+          </li>
+            <li class="nav-item">
+            <a class="nav-link" href="">
+
+              <span>All Reports</span>
+
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="">
+
+              <span>Invoices</span>
+            </a>
+          </li>
+            <li class="nav-item">
+            <a class="nav-link" href="">
+
+              <span>Accounts</span>
+            </a>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link" href="">
+
+              <span>Support</span>
+            </a>
+          </li>
+        </ul>
+      </div><!-- container -->
+    </div><!-- slim-navbar -->
+
+    {% endblock head %}
+
+
+    {% block content %}
+
+
+    {% endblock content %}
+
+    {% block footer %}
+
+    <div class="slim-footer">
+      <div class="container">
+        <p>Copyright 2018 &copy; All Rights Reserved. Semranks</p>
+        <p>Powered by: <a href="#">Semranks</a></p>
+      </div><!-- container -->
+    </div><!-- slim-footer -->
+
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/jquery.cookie.js' %}"></script>
+    <script src="{% static 'js/d3.js' %}"></script>
+    <script src="{% static 'js/rickshaw.min.js' %}"></script>
+    <script src="{% static 'js/jquery.flot.js' %}"></script>
+    <script src="{% static 'js/jquery.flot.resize.js' %}"></script>
+    <script src="{% static 'js/jquery.peity.js' %}"></script>
+
+    <script src="{% static 'js/slim.js' %}"></script>
+    <script src="{% static 'js/ResizeSensor.js' %}"></script>
+
+  </body>
+
+</html>
+{% endblock footer %}

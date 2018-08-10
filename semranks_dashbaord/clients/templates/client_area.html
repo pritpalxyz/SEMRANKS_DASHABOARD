@@ -1,0 +1,338 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+   <div class="slim-mainpanel">
+      <div class="container">
+        <div class="slim-pageheader">
+          <ol class="breadcrumb slim-breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+          </ol>
+          <h6 class="slim-pagetitle">Welcome back, {{request.user}}</h6>
+        </div><!-- slim-pageheader -->
+
+        <div class="row row-xs">
+          <div class="col-sm-6 col-lg-4">
+            <div class="card card-status">
+              <div class="media">
+                <!--<i class="icon ion-ios-cloud-download-outline tx-purple"></i>-->
+                <div class="media-body">
+                  <h1>{{projectCount}}</h1>
+                  <p>Projects</p>
+                </div><!-- media-body -->
+              </div><!-- media -->
+            </div><!-- card -->
+          </div><!-- col-3 -->
+          <div class="col-sm-6 col-lg-4 mg-t-10 mg-sm-t-0">
+            <div class="card card-status">
+              <div class="media">
+                <!--<i class="icon ion-ios-bookmarks-outline tx-teal"></i>-->
+                <div class="media-body">
+                  <h1>10</h1>
+                  <p>Reports Provided</p>
+                </div><!-- media-body -->
+              </div><!-- media -->
+            </div><!-- card -->
+          </div><!-- col-3 -->
+
+          <div class="col-sm-6 col-lg-4 mg-t-10 mg-lg-t-0">
+            <div class="card card-status">
+              <div class="media">
+                <!--<i class="icon ion-ios-analytics-outline tx-pink"></i>-->
+                <div class="media-body">
+                  <h1>{{pendingInvoice}}</h1>
+                  <p>Pending Invoices</p>
+                </div><!-- media-body -->
+              </div><!-- media -->
+            </div><!-- card -->
+          </div><!-- col-3 -->
+        </div><!-- row -->
+
+        <div class="row row-xs mg-t-10">
+          <div class="col-lg-8 col-xl-9">
+            <div class="row row-xs">
+              <div class="col-md-4 col-lg-6 col-xl-4">
+                <div class="card card-activities pd-20">
+                  <h6 class="slim-card-title">Recent Activities</h6>
+                  <p>Last activity was 1 hour ago</p>
+
+                  <div class="media-list">
+                    <div class="media">
+                      <div class="activity-icon bg-primary">
+                        .doc
+                      </div><!-- activity-icon -->
+                      <div class="media-body">
+                        <h6>Report for www.abc.com has been updated</h6>
+                        <p>Weekly Analytics Report</p>
+                        <span>2 hours ago</span>
+                      </div><!-- media-body -->
+                    </div><!-- media -->
+                     <div class="media">
+                      <div class="activity-icon bg-danger">
+                        .pdf
+                      </div><!-- activity-icon -->
+                      <div class="media-body">
+                        <h6>Report for www.abc.com has been updated</h6>
+                        <p>Weekly Analytics Report</p>
+                        <span>2 hours ago</span>
+                      </div><!-- media-body -->
+                    </div><!-- media -->
+                     <div class="media">
+                      <div class="activity-icon bg-primary">
+                        .doc
+                      </div><!-- activity-icon -->
+                      <div class="media-body">
+                        <h6>Report for www.abc.com has been updated</h6>
+                        <p>Weekly Analytics Report</p>
+                        <span>2 hours ago</span>
+                      </div><!-- media-body -->
+                    </div><!-- media -->
+                    <a href="" class="btn btn-warning btn-sm float-right">View all</a>
+                  </div><!-- media-list -->
+                </div><!-- card -->
+              </div><!-- col-5 -->
+
+
+              <div class="col-md-8 col-lg-6 col-xl-8 mg-t-10 mg-md-t-0">
+
+                         <div class="card card-table">
+                              <div class="card-header">
+                                <h6 class="slim-card-title">All Available Projects</h6>
+                              </div><!-- card-header -->
+                              <div class="table-responsive">
+                                <table class="table mg-b-0 tx-13">
+                                  <thead>
+                                    <tr class="tx-10">
+                                      <th class="wd-10p pd-y-5">&nbsp;</th>
+                                      <th class="pd-y-5">User</th>
+                                      <th class="pd-y-5">Type</th>
+                                      <th class="pd-y-5">Date</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td class="pd-l-20">
+                                        <img src="http://themepixels.me/slim/img/img1.jpg" class="wd-36 rounded-circle" alt="Image">
+                                      </td>
+                                      <td>
+                                        <a href="#" class="tx-inverse tx-14 tx-medium d-block">Mark K. Peters</a>
+                                        <span class="tx-11 d-block">TRANSID: 1234567890</span>
+                                      </td>
+                                      <td class="tx-12">
+                                        <span class="square-8 bg-success mg-r-5 rounded-circle"></span> Email verified
+                                      </td>
+                                      <td>Just Now</td>
+                                    </tr>
+                                    <tr>
+                                      <td class="pd-l-20">
+                                        <img src="http://themepixels.me/slim/img/img2.jpg" class="wd-36 rounded-circle" alt="Image">
+                                      </td>
+                                      <td>
+                                        <a href="#" class="tx-inverse tx-14 tx-medium d-block">Karmen F. Brown</a>
+                                        <span class="tx-11 d-block">TRANSID: 1234567890</span>
+                                      </td>
+                                      <td class="tx-12">
+                                        <span class="square-8 bg-warning mg-r-5 rounded-circle"></span> Pending verification
+                                      </td>
+                                      <td>Apr 21, 2017 8:34am</td>
+                                    </tr>
+                                    <tr>
+                                      <td class="pd-l-20">
+                                        <img src="http://themepixels.me/slim/img/img3.jpg" class="wd-36 rounded-circle" alt="Image">
+                                      </td>
+                                      <td>
+                                        <a href="#" class="tx-inverse tx-14 tx-medium d-block">Gorgonio Magalpok</a>
+                                        <span class="tx-11 d-block">TRANSID: 1234567890</span>
+                                      </td>
+                                      <td class="tx-12">
+                                        <span class="square-8 bg-success mg-r-5 rounded-circle"></span> Purchased success
+                                      </td>
+                                      <td>Apr 10, 2017 4:40pm</td>
+                                    </tr>
+                                    <tr>
+                                      <td class="pd-l-20">
+                                        <img src="http://themepixels.me/slim/img/img5.jpg" class="wd-36 rounded-circle" alt="Image">
+                                      </td>
+                                      <td>
+                                        <a href="#" class="tx-inverse tx-14 tx-medium d-block">Ariel T. Hall</a>
+                                        <span class="tx-11 d-block">TRANSID: 1234567890</span>
+                                      </td>
+                                      <td class="tx-12">
+                                        <span class="square-8 bg-warning mg-r-5 rounded-circle"></span> Payment on hold
+                                      </td>
+                                      <td>Apr 02, 2017 6:45pm</td>
+                                    </tr>
+                                   <tr>
+                                      <td class="pd-l-20">
+                                        <img src="http://themepixels.me/slim/img/img5.jpg" class="wd-36 rounded-circle" alt="Image">
+                                      </td>
+                                      <td>
+                                        <a href="#" class="tx-inverse tx-14 tx-medium d-block">Ariel T. Hall</a>
+                                        <span class="tx-11 d-block">TRANSID: 1234567890</span>
+                                      </td>
+                                      <td class="tx-12">
+                                        <span class="square-8 bg-warning mg-r-5 rounded-circle"></span> Payment on hold
+                                      </td>
+                                      <td>Apr 02, 2017 6:45pm</td>
+                                    </tr>
+
+                                  </tbody>
+                                </table>
+                              </div><!-- table-responsive -->
+                              <div class="card-footer tx-12 pd-y-15 bg-transparent">
+                                <a href="#"><i class="fa fa-angle-down mg-r-5"></i>View All Projects</a>
+                              </div><!-- card-footer -->
+                             </div><!-- card -->
+
+
+
+
+              </div><!-- col-7 -->
+
+
+            </div><!-- row -->
+          </div><!-- col-9 -->
+          <div class="col-lg-4 col-xl-3 mg-t-10 mg-lg-t-0">
+            <div class="card card-people-list pd-20">
+              <div class="slim-card-title">People you can contact</div>
+              <div class="media-list">
+                <div class="media">
+                  <!--<img src="http://themepixels.me/slim/img/img5.jpg" alt="">-->
+                  <div class="media-body">
+                    <a href="#">Neeraj</a>
+                    <p class="tx-12">Software Engineer</p>
+                  </div><!-- media-body -->
+
+                </div><!-- media -->
+                <div class="media">
+                  <!--<img src="http://themepixels.me/slim/img/img6.jpg" alt="">-->
+                  <div class="media-body">
+                    <a href="#">Pritpal Singh</a>
+                    <p class="tx-12">Architect</p>
+                  </div><!-- media-body -->
+
+                </div><!-- media -->
+                <div class="media">
+                  <!--<img src="http://themepixels.me/slim/img/img13.jpg" alt="">-->
+                  <div class="media-body">
+                    <a href="#">Warren Vito</a>
+                    <p class="tx-12">Sales Representative</p>
+                  </div><!-- media-body -->
+
+                </div><!-- media -->
+                   <div style="height:100%">
+
+                </div><!-- media -->
+
+
+
+              </div><!-- media-list -->
+            </div><!-- card -->
+          </div><!-- col-3 -->
+        </div><!-- row -->
+
+        <div class="row row-xs mg-t-10">
+
+
+          <div class="col-lg-7">
+
+
+            <div class="card card-table">
+              <div class="card-header">
+                <h6 class="slim-card-title">Competation Analytics Reports</h6>
+              </div><!-- card-header -->
+              <div class="table-responsive">
+                <table class="table mg-b-0 tx-13">
+                  <thead>
+                    <tr class="tx-10">
+                      <th class="wd-10p pd-y-5">&nbsp;#</th>
+                      <th class="pd-y-5">Wesbite</th>
+                      <th class="pd-y-5">Status</th>
+                      <th class="pd-y-5">Requested on</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="pd-l-20">
+                        #
+                      </td>
+                      <td>
+                        <a href="#" class="tx-inverse tx-14 tx-medium d-block">Mark K. Peters</a>
+                        <span class="tx-11 d-block">TRANSID: 1234567890</span>
+                      </td>
+                      <td class="tx-12">
+                        <span class="square-8 bg-success mg-r-5 rounded-circle"></span> Email verified
+                      </td>
+                      <td>Just Now</td>
+                      <td>
+                        <button class="btn btn-warning btn-sm">View Report</button>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div><!-- table-responsive -->
+
+            </div><!-- card -->
+
+          </div><!-- col-6 -->
+
+           <div class="col-lg-5">
+
+
+            <div class="card card-table">
+              <div class="card-header">
+                <h6 class="slim-card-title">Accounts Added</h6>
+              </div><!-- card-header -->
+              <div class="table-responsive">
+                <table class="table mg-b-0 tx-13">
+                  <thead>
+                    <tr class="tx-10">
+
+                      <th class="pd-y-3">username</th>
+                      <th class="pd-y-3">Account Info</th>
+                      <th></th>
+                      <th></th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+
+                      <td>
+                        <a href="" class="tx-inverse tx-14 tx-medium d-block">pritsingh1701@gmail.com</a>
+
+                      </td>
+                      <td >
+                         Amazon
+                      </td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+
+
+
+                    </tr>
+
+
+                  </tbody>
+                </table>
+              </div><!-- table-responsive -->
+
+            </div><!-- card -->
+
+          </div><!-- col-6 -->
+
+
+
+
+
+
+        </div><!-- row -->
+      </div><!-- container -->
+    </div><!-- slim-mainpanel -->
+
+{% endblock content %}

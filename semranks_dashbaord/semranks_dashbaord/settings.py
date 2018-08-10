@@ -13,7 +13,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR    = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SITE_ROOT   = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -37,6 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+
+
+    'accounts',
+    'clients',
+    'django_countries',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +61,7 @@ ROOT_URLCONF = 'semranks_dashbaord.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS':[os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,8 +82,12 @@ WSGI_APPLICATION = 'semranks_dashbaord.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'semranks_dashboard',
+        'USER': 'root',
+        'PASSWORD':'laptrip0',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
@@ -104,8 +115,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+TIME_ZONE =  'Asia/Kolkata'
 
-TIME_ZONE = 'UTC'
+
 
 USE_I18N = True
 
@@ -113,8 +125,14 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+MEDIA_URL = '/mediadump/'
+MEDIA_SUB_FOLDER_NAME = 'sem-ranks'
+MEDIA_ROOT = os.path.join(SITE_ROOT, 'sem-media-files')
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+   os.path.join(BASE_DIR, "static"),
+]
+LOGIN_URL = "/"
