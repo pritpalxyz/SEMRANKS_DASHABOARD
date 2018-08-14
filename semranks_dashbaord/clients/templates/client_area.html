@@ -30,7 +30,7 @@
               <div class="media">
                 <!--<i class="icon ion-ios-bookmarks-outline tx-teal"></i>-->
                 <div class="media-body">
-                  <h1>10</h1>
+                  <h1>{{all_reports_count}}</h1>
                   <p>Reports Provided</p>
                 </div><!-- media-body -->
               </div><!-- media -->
@@ -59,36 +59,43 @@
                   <p>Last activity was 1 hour ago</p>
 
                   <div class="media-list">
+
+                    {% for rep in all_reports %}
                     <div class="media">
                       <div class="activity-icon bg-primary">
-                        .doc
+                        {{rep.file_extension}}
                       </div><!-- activity-icon -->
                       <div class="media-body">
-                        <h6>Report for www.abc.com has been updated</h6>
-                        <p>Weekly Analytics Report</p>
-                        <span>2 hours ago</span>
+                        <h6>Report for {{rep.project_id.project_name}} has been updated</h6>
+                        <p>{{rep.report_type}}</p>
+                        <span>{{rep.date_time}}</span>
                       </div><!-- media-body -->
                     </div><!-- media -->
-                     <div class="media">
-                      <div class="activity-icon bg-danger">
-                        .pdf
-                      </div><!-- activity-icon -->
-                      <div class="media-body">
-                        <h6>Report for www.abc.com has been updated</h6>
-                        <p>Weekly Analytics Report</p>
-                        <span>2 hours ago</span>
-                      </div><!-- media-body -->
-                    </div><!-- media -->
-                     <div class="media">
-                      <div class="activity-icon bg-primary">
-                        .doc
-                      </div><!-- activity-icon -->
-                      <div class="media-body">
-                        <h6>Report for www.abc.com has been updated</h6>
-                        <p>Weekly Analytics Report</p>
-                        <span>2 hours ago</span>
-                      </div><!-- media-body -->
-                    </div><!-- media -->
+                    {% endfor %}
+
+                     <!--<div class="media">-->
+                      <!--<div class="activity-icon bg-danger">-->
+                        <!--.pdf-->
+                      <!--</div>&lt;!&ndash; activity-icon &ndash;&gt;-->
+                      <!--<div class="media-body">-->
+                        <!--<h6>Report for www.abc.com has been updated</h6>-->
+                        <!--<p>Weekly Analytics Report</p>-->
+                        <!--<span>2 hours ago</span>-->
+                      <!--</div>&lt;!&ndash; media-body &ndash;&gt;-->
+                    <!--</div>&lt;!&ndash; media &ndash;&gt;-->
+
+                     <!--<div class="media">-->
+                      <!--<div class="activity-icon bg-primary">-->
+                        <!--.doc-->
+                      <!--</div>&lt;!&ndash; activity-icon &ndash;&gt;-->
+                      <!--<div class="media-body">-->
+                        <!--<h6>Report for www.abc.com has been updated</h6>-->
+                        <!--<p>Weekly Analytics Report</p>-->
+                        <!--<span>2 hours ago</span>-->
+                      <!--</div>&lt;!&ndash; media-body &ndash;&gt;-->
+                    <!--</div>&lt;!&ndash; media &ndash;&gt;-->
+
+
                     <a href="" class="btn btn-warning btn-sm float-right">View all</a>
                   </div><!-- media-list -->
                 </div><!-- card -->
@@ -105,78 +112,40 @@
                                 <table class="table mg-b-0 tx-13">
                                   <thead>
                                     <tr class="tx-10">
-                                      <th class="wd-10p pd-y-5">&nbsp;</th>
-                                      <th class="pd-y-5">User</th>
-                                      <th class="pd-y-5">Type</th>
+
+                                      <th class="pd-y-5">Name</th>
+                                      <th class="pd-y-5">Subscription</th>
+                                      <th class="pd-y-5">Project Status</th>
                                       <th class="pd-y-5">Date</th>
+
                                     </tr>
                                   </thead>
                                   <tbody>
+
+                                    {% for proj in projectsAll %}
+
                                     <tr>
-                                      <td class="pd-l-20">
-                                        <img src="http://themepixels.me/slim/img/img1.jpg" class="wd-36 rounded-circle" alt="Image">
+
+
                                       </td>
                                       <td>
-                                        <a href="#" class="tx-inverse tx-14 tx-medium d-block">Mark K. Peters</a>
-                                        <span class="tx-11 d-block">TRANSID: 1234567890</span>
-                                      </td>
-                                      <td class="tx-12">
-                                        <span class="square-8 bg-success mg-r-5 rounded-circle"></span> Email verified
-                                      </td>
-                                      <td>Just Now</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="pd-l-20">
-                                        <img src="http://themepixels.me/slim/img/img2.jpg" class="wd-36 rounded-circle" alt="Image">
+                                        <a href="#" class="tx-inverse tx-14 tx-medium d-block">{{proj.project_name}}</a>
+                                        <span class="tx-11 d-block">{{proj.website_url}}</span>
                                       </td>
                                       <td>
-                                        <a href="#" class="tx-inverse tx-14 tx-medium d-block">Karmen F. Brown</a>
-                                        <span class="tx-11 d-block">TRANSID: 1234567890</span>
+                                         <a href="#" class="tx-inverse tx-14 tx-medium d-block">{{proj.subscription_plans_name}}</a>
+                                        <span class="tx-11 d-block">${{proj.subscription_plans_monthly_price}}</span>
+
                                       </td>
                                       <td class="tx-12">
-                                        <span class="square-8 bg-warning mg-r-5 rounded-circle"></span> Pending verification
+                                        <span class="square-8 bg-success mg-r-5 rounded-circle"></span> {{proj.project_status}}
                                       </td>
-                                      <td>Apr 21, 2017 8:34am</td>
+
+                                      <td>{{proj.date_time}}</td>
                                     </tr>
-                                    <tr>
-                                      <td class="pd-l-20">
-                                        <img src="http://themepixels.me/slim/img/img3.jpg" class="wd-36 rounded-circle" alt="Image">
-                                      </td>
-                                      <td>
-                                        <a href="#" class="tx-inverse tx-14 tx-medium d-block">Gorgonio Magalpok</a>
-                                        <span class="tx-11 d-block">TRANSID: 1234567890</span>
-                                      </td>
-                                      <td class="tx-12">
-                                        <span class="square-8 bg-success mg-r-5 rounded-circle"></span> Purchased success
-                                      </td>
-                                      <td>Apr 10, 2017 4:40pm</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="pd-l-20">
-                                        <img src="http://themepixels.me/slim/img/img5.jpg" class="wd-36 rounded-circle" alt="Image">
-                                      </td>
-                                      <td>
-                                        <a href="#" class="tx-inverse tx-14 tx-medium d-block">Ariel T. Hall</a>
-                                        <span class="tx-11 d-block">TRANSID: 1234567890</span>
-                                      </td>
-                                      <td class="tx-12">
-                                        <span class="square-8 bg-warning mg-r-5 rounded-circle"></span> Payment on hold
-                                      </td>
-                                      <td>Apr 02, 2017 6:45pm</td>
-                                    </tr>
-                                   <tr>
-                                      <td class="pd-l-20">
-                                        <img src="http://themepixels.me/slim/img/img5.jpg" class="wd-36 rounded-circle" alt="Image">
-                                      </td>
-                                      <td>
-                                        <a href="#" class="tx-inverse tx-14 tx-medium d-block">Ariel T. Hall</a>
-                                        <span class="tx-11 d-block">TRANSID: 1234567890</span>
-                                      </td>
-                                      <td class="tx-12">
-                                        <span class="square-8 bg-warning mg-r-5 rounded-circle"></span> Payment on hold
-                                      </td>
-                                      <td>Apr 02, 2017 6:45pm</td>
-                                    </tr>
+                                  {% endfor %}
+
+
 
                                   </tbody>
                                 </table>
@@ -300,23 +269,21 @@
                     </tr>
                   </thead>
                   <tbody>
+                    {% for acc in all_accounts %}
                     <tr>
 
                       <td>
-                        <a href="" class="tx-inverse tx-14 tx-medium d-block">pritsingh1701@gmail.com</a>
+                        <a href="" class="tx-inverse tx-14 tx-medium d-block">{{acc.username}}</a>
 
                       </td>
                       <td >
-                         Amazon
+                         {{acc.account_for}}
                       </td>
                       <td></td>
                       <td></td>
                       <td></td>
-
-
-
                     </tr>
-
+                  {% endfor %}
 
                   </tbody>
                 </table>

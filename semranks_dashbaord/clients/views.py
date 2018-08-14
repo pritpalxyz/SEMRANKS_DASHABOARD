@@ -18,6 +18,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.db.models import Q
 
 from .models import *
+from accounts.models import *
 
 
 class ClientDashboard(TemplateView):
@@ -30,15 +31,25 @@ class ClientDashboard(TemplateView):
 	def get_context_data(self, **kwargs):
 		context = super(self.__class__, self).get_context_data(**kwargs)
 		projectsAll = projects.objects.filter(client_id=self.request.user)
+		all_accounts = account_credentials.objects.filter(added_by=self.request.user)
 		all_invoices = 0
 		all_reports = []
+		all_reports_count = 0
 		for proj in projectsAll:
 			query_object = Q(project_id=proj) & Q(invoice_status='pending')
 			all_invoices+=int(projectInvoice.objects.filter(query_object).count())
-
+			report_insta = projectReports.objects.filter(project_id=proj)
+			all_reports_count+=int(report_insta.count())
+			for sub_report in report_insta:
+				all_reports.append(sub_report)
+		print all_reports
 		# allInvoice = projectInvoice.objects.filter()
 		context['projectCount'] = projectsAll.count()
 		context['pendingInvoice'] = all_invoices
+		context['all_reports_count'] = all_reports_count
+		context['projectsAll'] = projectsAll
+		context['all_accounts'] = all_accounts
+		context['all_reports'] = all_reports[:3]
 		return context
 
 
